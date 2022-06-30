@@ -1,13 +1,15 @@
 import { ImgContainer, InfoContainer, ProductItem } from "./style";
 import { useDispatch } from "react-redux/es/exports";
 import { removeCartItemThunk } from "../../store/modules/cart/thunks";
+import { toast } from 'react-toastify';
 
 export const ProductCart = ({product}) => {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   function handleRemoveCartItem() {
-    dispatch(removeCartItemThunk(product))
+    dispatch(removeCartItemThunk(product));
+    toast.success("Produto removido do carrinho");
   }
 
   return(
